@@ -655,20 +655,20 @@
                 IEnumerable<XElement> query;
                 try
                 {
-                    if (_blog._Tags.Any())
+                    if (_blog._Tags.Contains(""))
+                    {
+                        query = (from n in document.Descendants("post")
+                                 where n.Elements("photo-url").Where(x => x.Attribute("max-width").Value == Properties.Settings.Default.configImageSize.ToString()).Any() &&
+                                 !n.Elements("photo-url").Where(x => x.Value == "www.tumblr.com").Any()
+                                 select n.Element("photo-url"));
+                    }
+                    else
                     {
                         query = (from n in document.Descendants("post")
                                  where n.Elements("photo-url").Where(x => x.Attribute("max-width").Value == Properties.Settings.Default.configImageSize.ToString()).Any() &&
                                  !n.Elements("photo-url").Where(x => x.Value == "www.tumblr.com").Any() &&
                                  n.Elements("tag").Where(x => _blog._Tags.Contains(x.Value)).Any()
                                  select n.Element("photo-url"));
-                    }
-                    else
-                    {
-                        query = (from n in document.Descendants("post")
-                                where n.Elements("photo-url").Where(x => x.Attribute("max-width").Value == Properties.Settings.Default.configImageSize.ToString()).Any() &&
-                                !n.Elements("photo-url").Where(x => x.Value == "www.tumblr.com").Any()
-                                select n.Element("photo-url"));
                     }
                 }
                 catch (Exception)
@@ -1005,7 +1005,7 @@
                             //                        {
                             //                        }
 
-                            this.BeginInvoke((MethodInvoker)delegate
+                            this.Invoke((MethodInvoker)delegate
                             {
                                 // Update UI:
                                 // Processlabel
