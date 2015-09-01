@@ -84,7 +84,6 @@
             this.chURL = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.chDateAdded = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.chLastCrawled = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.chFinished = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.contextBlog.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -410,7 +409,7 @@
             this.toolAbout.Image = global::TumblOne.Properties.Resources.About;
             this.toolAbout.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolAbout.Name = "toolAbout";
-            this.toolAbout.Size = new System.Drawing.Size(44, 51);
+            this.toolAbout.Size = new System.Drawing.Size(97, 51);
             this.toolAbout.Text = "About";
             this.toolAbout.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.toolAbout.ToolTipText = "Opens the about window";
@@ -440,6 +439,7 @@
             this.pgBar.Location = new System.Drawing.Point(6, 155);
             this.pgBar.Name = "pgBar";
             this.pgBar.Size = new System.Drawing.Size(770, 23);
+            this.pgBar.Style = System.Windows.Forms.ProgressBarStyle.Continuous;
             this.pgBar.TabIndex = 9;
             // 
             // groupBox1
@@ -574,8 +574,7 @@
             this.chPostCount,
             this.chURL,
             this.chDateAdded,
-            this.chLastCrawled,
-            this.chFinished});
+            this.chLastCrawled});
             this.lvBlog.ContextMenuStrip = this.contextBlog;
             this.lvBlog.ForeColor = System.Drawing.Color.Black;
             this.lvBlog.FullRowSelect = true;
@@ -608,7 +607,7 @@
             // chURL
             // 
             this.chURL.Text = "Url";
-            this.chURL.Width = 210;
+            this.chURL.Width = 240;
             // 
             // chDateAdded
             // 
@@ -617,13 +616,8 @@
             // 
             // chLastCrawled
             // 
-            this.chLastCrawled.Text = "Last Crawled";
-            this.chLastCrawled.Width = 130;
-            // 
-            // chFinished
-            // 
-            this.chFinished.Text = "Finished";
-            this.chFinished.Width = 80;
+            this.chLastCrawled.Text = "Last Complete Crawl";
+            this.chLastCrawled.Width = 150;
             // 
             // Form1
             // 
@@ -701,7 +695,6 @@
         private ToolStripButton toolRemoveQueue;
         private ColumnHeader chDateAdded;
         private ColumnHeader chLastCrawled;
-        private ColumnHeader chFinished;
         private ColumnHeader chPostCount;
         private GridLineDataGridView lvQueue;
         private DataGridViewTextBoxColumn chQueueName;
