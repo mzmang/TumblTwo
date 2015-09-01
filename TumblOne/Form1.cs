@@ -549,7 +549,7 @@
         private void RunParser(TumblrBlog _blog)
         {
             MethodInvoker method = null;
-            bool readDataBase = false;
+            bool readingDataBase = false;
             int numberOfPostsCrawled = 0;
             int numberOfPagesCrawled = 0;
             //string blogname = ExtractBlogname(ApiUrl.ToString());
@@ -724,12 +724,13 @@
                                             };
                                         }
                                         this.BeginInvoke(invoker);
+                                        readingDataBase = false;
                                     }
                                     else
                                     {
-                                        if (!readDataBase)
+                                        if (!readingDataBase)
                                         {
-                                            readDataBase = true;
+                                            readingDataBase = true;
                                             this.BeginInvoke((MethodInvoker)delegate
                                             {
                                                 this.lblUrl.Text = "Skipping previously downloaded images - " + _blog._Name;
