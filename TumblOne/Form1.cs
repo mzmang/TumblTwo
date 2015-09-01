@@ -657,7 +657,9 @@
                         query = (from n in document.Descendants("post")
                                  where n.Elements("photo-url").Where(x => x.Attribute("max-width").Value == Properties.Settings.Default.configImageSize.ToString()).Any() &&
                                  !n.Elements("photo-url").Where(x => x.Value == "www.tumblr.com").Any()
-                                 select n.Element("photo-url"));
+                                 from m in n.Descendants("photo-url")
+                                 where m.Attribute("max-width").Value == Properties.Settings.Default.configImageSize.ToString()
+                                 select m);
                     }
                     else
                     {
@@ -665,7 +667,9 @@
                                  where n.Elements("photo-url").Where(x => x.Attribute("max-width").Value == Properties.Settings.Default.configImageSize.ToString()).Any() &&
                                  !n.Elements("photo-url").Where(x => x.Value == "www.tumblr.com").Any() &&
                                  n.Elements("tag").Where(x => _blog._Tags.Contains(x.Value)).Any()
-                                 select n.Element("photo-url"));
+                                 from m in n.Descendants("photo-url")
+                                 where m.Attribute("max-width").Value == Properties.Settings.Default.configImageSize.ToString()
+                                 select m);
                     }
                 }
                 catch (Exception)
@@ -673,7 +677,9 @@
                     query = (from n in document.Descendants("post")
                              where n.Elements("photo-url").Where(x => x.Attribute("max-width").Value == Properties.Settings.Default.configImageSize.ToString()).Any() &&
                              !n.Elements("photo-url").Where(x => x.Value == "www.tumblr.com").Any()
-                             select n.Element("photo-url"));
+                             from m in n.Descendants("photo-url")
+                             where m.Attribute("max-width").Value == Properties.Settings.Default.configImageSize.ToString()
+                             select m);
                 }
                 using (IEnumerator<XElement> enumerator = query.GetEnumerator())
                 {
