@@ -74,6 +74,8 @@ namespace TumblOne
             this.tbDownloadLocation.Text = Properties.Settings.Default.configDownloadLocation;
             this.cbPicturePreview.Checked = Properties.Settings.Default.configPreviewVisible;
             this.cbRemoveFinished.Checked = Properties.Settings.Default.configRemoveFinishedBlogs;
+            this.cbDeleteIndexOnly.Checked = Properties.Settings.Default.configDeleteIndexOnly;
+            this.chkGif.Checked = Properties.Settings.Default.configChkGIFState;
         }
 
         static void Loaded_PropertyChanged(
@@ -134,6 +136,30 @@ namespace TumblOne
         private void buttonCancel_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void chkGif_CheckedChanged(object sender, EventArgs e)
+        {
+            if (this.chkGif.Checked)
+            {
+                Properties.Settings.Default.configChkGIFState = true;
+            }
+            else
+            {
+                Properties.Settings.Default.configChkGIFState = false;
+            }
+        }
+
+        private void cbDeleteIndexOnly_CheckedChanged(object sender, EventArgs e)
+        {
+            if (this.cbDeleteIndexOnly.Checked)
+            {
+                Properties.Settings.Default.configDeleteIndexOnly = true;
+            }
+            else
+            {
+                Properties.Settings.Default.configDeleteIndexOnly = false;
+            }
         }
     }
 }

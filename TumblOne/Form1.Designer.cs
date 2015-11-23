@@ -82,6 +82,7 @@
             this.chDownloadedImages = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.chPostCount = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.chURL = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.chProgress = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.chDateAdded = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.chLastCrawled = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.contextBlog.SuspendLayout();
@@ -113,7 +114,7 @@
             this.tBlogUrl.ForeColor = System.Drawing.Color.Black;
             this.tBlogUrl.Location = new System.Drawing.Point(135, 16);
             this.tBlogUrl.Name = "tBlogUrl";
-            this.tBlogUrl.Size = new System.Drawing.Size(822, 21);
+            this.tBlogUrl.Size = new System.Drawing.Size(842, 21);
             this.tBlogUrl.TabIndex = 1;
             this.tBlogUrl.Text = "http://";
             // 
@@ -133,12 +134,13 @@
             this.chkGIF.AutoSize = true;
             this.chkGIF.BackColor = System.Drawing.SystemColors.Window;
             this.chkGIF.Checked = global::TumblOne.Properties.Settings.Default.configChkGIFState;
-            this.chkGIF.Location = new System.Drawing.Point(685, 19);
+            this.chkGIF.Location = new System.Drawing.Point(705, 19);
             this.chkGIF.Name = "chkGIF";
             this.chkGIF.Size = new System.Drawing.Size(91, 17);
             this.chkGIF.TabIndex = 8;
             this.chkGIF.Text = "Skip GIF-Files";
             this.chkGIF.UseVisualStyleBackColor = false;
+            this.chkGIF.Visible = false;
             this.chkGIF.CheckedChanged += new System.EventHandler(this.chkGIF_CheckedChanged);
             // 
             // lblUrl
@@ -149,7 +151,7 @@
             this.lblUrl.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.lblUrl.Location = new System.Drawing.Point(6, 93);
             this.lblUrl.Name = "lblUrl";
-            this.lblUrl.Size = new System.Drawing.Size(770, 49);
+            this.lblUrl.Size = new System.Drawing.Size(790, 49);
             this.lblUrl.TabIndex = 7;
             this.lblUrl.Text = "       ";
             this.lblUrl.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -250,7 +252,7 @@
             this.toolSettings,
             this.toolStripSeparator3,
             this.toolAbout});
-            this.toolStrip1.Location = new System.Drawing.Point(964, 0);
+            this.toolStrip1.Location = new System.Drawing.Point(984, 0);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
             this.toolStrip1.Size = new System.Drawing.Size(100, 671);
@@ -438,7 +440,7 @@
             this.pgBar.ForeColor = System.Drawing.SystemColors.ActiveCaption;
             this.pgBar.Location = new System.Drawing.Point(6, 155);
             this.pgBar.Name = "pgBar";
-            this.pgBar.Size = new System.Drawing.Size(770, 23);
+            this.pgBar.Size = new System.Drawing.Size(790, 23);
             this.pgBar.Style = System.Windows.Forms.ProgressBarStyle.Continuous;
             this.pgBar.TabIndex = 9;
             // 
@@ -455,7 +457,7 @@
             this.groupBox1.ForeColor = System.Drawing.SystemColors.InfoText;
             this.groupBox1.Location = new System.Drawing.Point(12, 475);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(782, 184);
+            this.groupBox1.Size = new System.Drawing.Size(802, 184);
             this.groupBox1.TabIndex = 10;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Download";
@@ -468,7 +470,7 @@
             this.panelInfo.ForeColor = System.Drawing.SystemColors.InfoText;
             this.panelInfo.Location = new System.Drawing.Point(12, 475);
             this.panelInfo.Name = "panelInfo";
-            this.panelInfo.Size = new System.Drawing.Size(945, 184);
+            this.panelInfo.Size = new System.Drawing.Size(965, 184);
             this.panelInfo.TabIndex = 11;
             // 
             // label2
@@ -480,7 +482,7 @@
             this.label2.ForeColor = System.Drawing.SystemColors.InfoText;
             this.label2.Location = new System.Drawing.Point(0, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(945, 184);
+            this.label2.Size = new System.Drawing.Size(965, 184);
             this.label2.TabIndex = 0;
             this.label2.Text = "To start, click on a blog, add it to the queue and hit the \'Crawl\' button to star" +
     "t the crawl process. ";
@@ -491,7 +493,7 @@
             this.smallImage.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.smallImage.BackColor = System.Drawing.SystemColors.Menu;
             this.smallImage.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.smallImage.Location = new System.Drawing.Point(800, 475);
+            this.smallImage.Location = new System.Drawing.Point(820, 475);
             this.smallImage.Name = "smallImage";
             this.smallImage.Size = new System.Drawing.Size(157, 184);
             this.smallImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -538,7 +540,7 @@
             dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.lvQueue.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
-            this.lvQueue.Size = new System.Drawing.Size(946, 147);
+            this.lvQueue.Size = new System.Drawing.Size(966, 147);
             this.lvQueue.TabIndex = 12;
             // 
             // chQueueName
@@ -563,6 +565,7 @@
             // 
             // lvBlog
             // 
+            this.lvBlog.AllowColumnReorder = true;
             this.lvBlog.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
@@ -573,6 +576,7 @@
             this.chDownloadedImages,
             this.chPostCount,
             this.chURL,
+            this.chProgress,
             this.chDateAdded,
             this.chLastCrawled});
             this.lvBlog.ContextMenuStrip = this.contextBlog;
@@ -581,11 +585,11 @@
             this.lvBlog.HideSelection = false;
             this.lvBlog.Location = new System.Drawing.Point(12, 42);
             this.lvBlog.Name = "lvBlog";
-            this.lvBlog.Size = new System.Drawing.Size(946, 274);
-            this.lvBlog.Sorting = System.Windows.Forms.SortOrder.Ascending;
+            this.lvBlog.Size = new System.Drawing.Size(966, 274);
             this.lvBlog.TabIndex = 0;
             this.lvBlog.UseCompatibleStateImageBehavior = false;
             this.lvBlog.View = System.Windows.Forms.View.Details;
+            this.lvBlog.ColumnClick += new System.Windows.Forms.ColumnClickEventHandler(this.lvBlog_ColumnClick);
             // 
             // chName
             // 
@@ -609,6 +613,10 @@
             this.chURL.Text = "Url";
             this.chURL.Width = 240;
             // 
+            // chProgress
+            // 
+            this.chProgress.Text = "Progress";
+            // 
             // chDateAdded
             // 
             this.chDateAdded.Text = "Date Added";
@@ -622,7 +630,7 @@
             // Form1
             // 
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1064, 671);
+            this.ClientSize = new System.Drawing.Size(1084, 671);
             this.Controls.Add(this.lvQueue);
             this.Controls.Add(this.panelInfo);
             this.Controls.Add(this.groupBox1);
@@ -701,5 +709,6 @@
         private DataGridViewTextBoxColumn chQueueStatus;
         private DataGridViewTextBoxColumn chTags;
         private ToolStripButton toolCheckClipboard;
+        private ColumnHeader chProgress;
     }
 }
